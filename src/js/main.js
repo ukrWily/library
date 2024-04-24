@@ -1,3 +1,9 @@
-import "./lib/lib";
+import $ from "./lib/lib";
 
-$(".active").toggle().toggle();
+$("button").on("click", function () {
+  $(".wrapper>div").toggleClass("active");
+});
+
+$("button").on("click", function () {
+  $(".wrapper>div").toggleAttr("required");
+});
