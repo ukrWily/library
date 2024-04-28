@@ -143,6 +143,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.find = function (selecto
 };
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.closest = function (selector) {
   let counter = 0;
+  let bull = 0;
   for (let i = 0; i < this.length; i++) {
     this[i] = this[i].closest(selector);
     counter++;
