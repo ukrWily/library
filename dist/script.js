@@ -55,6 +55,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_handlers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/handlers */ "./src/js/lib/modules/handlers.js");
 /* harmony import */ var _modules_attributes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/attributes */ "./src/js/lib/modules/attributes.js");
 /* harmony import */ var _modules_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/actions */ "./src/js/lib/modules/actions.js");
+/* harmony import */ var _modules_effects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/effects */ "./src/js/lib/modules/effects.js");
+
 
 
 
@@ -135,6 +137,10 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.find = function (selecto
     numberOfItems += arr.length;
   }
   this.length = numberOfItems;
+  /**
+   * Якщо кількість елементів у ісходному об'єкті було більше ніж у виходному
+   * з'являються порожні елементи, яки і видаляємо
+   */
   const objLength = Object.keys(this).length;
   for (; numberOfItems < objLength; numberOfItems++) {
     delete this[numberOfItems];
@@ -143,14 +149,52 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.find = function (selecto
 };
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.closest = function (selector) {
   let counter = 0;
-  let bull = 0;
+  console.log(this);
   for (let i = 0; i < this.length; i++) {
-    this[i] = this[i].closest(selector);
-    counter++;
+    if (this[i].closest(selector)) {
+      this[i] = this[i].closest(selector);
+      counter++;
+    } else {
+      this[i] = "no way";
+    }
   }
+  /**
+   * Якщо кількість елементів у ісходному об'єкті було більше ніж у виходному
+   * з'являються порожні елементи, яки і видаляємо
+   */
   const objLength = Object.keys(this).length;
-  for (; numberOfItems < objLength; counter++) {
+  for (; counter < objLength; counter++) {
     delete this[counter];
+  }
+  return this;
+};
+
+/**
+ * find and return elem's siblings
+ */
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.siblings = function () {
+  let numberOfItems = 0;
+  let counter = 0;
+  const copyObj = Object.assign({}, this);
+  for (let i = 0; i < copyObj.length; i++) {
+    const arr = copyObj[i].parentNode.children;
+    for (let j = 0; j < arr.length; j++) {
+      if (copyObj[i] === arr[j]) {
+        continue;
+      }
+      this[counter] = arr[j];
+      counter++;
+    }
+    numberOfItems += arr.length - 1;
+  }
+  this.length = numberOfItems;
+  /**
+   * Якщо кількість елементів у ісходному об'єкті було більше ніж у виходному
+   * з'являються порожні елементи, яки і видаляємо
+   */
+  const objLength = Object.keys(this).length;
+  for (; numberOfItems < objLength; numberOfItems++) {
+    delete this[numberOfItems];
   }
   return this;
 };
@@ -284,6 +328,68 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggle = function () {
 
 /***/ }),
 
+/***/ "./src/js/lib/modules/effects.js":
+/*!***************************************!*\
+  !*** ./src/js/lib/modules/effects.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+
+/**
+ *
+ * @param {duration} dur
+ * @param {callback} cb
+ * @param {finalFn} fin
+ */
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.animateOverTime = function (dur, cb, fin) {
+  let timeStart;
+  function _animateOverTime(time) {
+    if (!timeStart) {
+      timeStart = time;
+    }
+    let timeElapsed = time - timeStart;
+    let complection = Math.min(timeElapsed / dur, 1);
+    cb(complection);
+    if (timeElapsed < dur) {
+      requestAnimationFrame(_animateOverTime);
+    } else {
+      if (typeof fin === "function") {
+        fin();
+      }
+    }
+  }
+  return _animateOverTime;
+};
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeIn = function (dur, display = "block", fin) {
+  for (let i = 0; i < this.length; i++) {
+    this[i].style.display = display;
+    const _fadeIn = complection => {
+      this[i].style.opacity = complection;
+    };
+    const ani = this.animateOverTime(dur, _fadeIn, fin);
+    requestAnimationFrame(ani);
+  }
+  return this;
+};
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeOut = function (dur, fin) {
+  for (let i = 0; i < this.length; i++) {
+    const _fadeOut = complection => {
+      this[i].style.opacity = 1 - complection;
+      if (complection === 1) {
+        this[i].style.display = "none";
+      }
+    };
+    const ani = this.animateOverTime(dur, _fadeOut, fin);
+    requestAnimationFrame(ani);
+  }
+  return this;
+};
+
+/***/ }),
+
 /***/ "./src/js/lib/modules/handlers.js":
 /*!****************************************!*\
   !*** ./src/js/lib/modules/handlers.js ***!
@@ -398,15 +504,18 @@ __webpack_require__.r(__webpack_exports__);
 //   $("div").eq(0).toggleClass("active");
 // });
 
-(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])("div").click(function () {
-  console.log((0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(this).index());
-});
+// $("div").click(function () {
+//   console.log($(this).index());
+// });
 
 // $("button").on("click", function () {
 //   $(".wrapper>div").toggleAttr("required");
 // });
 
-// console.log($("button").html());
+// console.log($(".some").closest(".findmeq"));
+// console.log($(".more").eq(0).siblings());
+// console.log($(".target").siblings());
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(".target").fadeIn(1800);
 })();
 
 /******/ })()

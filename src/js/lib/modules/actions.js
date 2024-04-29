@@ -68,7 +68,10 @@ $.prototype.find = function (selector) {
   }
 
   this.length = numberOfItems;
-
+  /**
+   * Якщо кількість елементів у ісходному об'єкті було більше ніж у виходному
+   * з'являються порожні елементи, яки і видаляємо
+   */
   const objLength = Object.keys(this).length;
   for (; numberOfItems < objLength; numberOfItems++) {
     delete this[numberOfItems];
@@ -79,16 +82,60 @@ $.prototype.find = function (selector) {
 
 $.prototype.closest = function (selector) {
   let counter = 0;
-  let bull = 0;
+  console.log(this);
 
   for (let i = 0; i < this.length; i++) {
-    this[i] = this[i].closest(selector);
-    counter++;
+    if (this[i].closest(selector)) {
+      this[i] = this[i].closest(selector);
+      counter++;
+    } else {
+      this[i] = "no way";
+    }
+  }
+  /**
+   * Якщо кількість елементів у ісходному об'єкті було більше ніж у виходному
+   * з'являються порожні елементи, яки і видаляємо
+   */
+  const objLength = Object.keys(this).length;
+  for (; counter < objLength; counter++) {
+    delete this[counter];
   }
 
+  return this;
+};
+
+/**
+ * find and return elem's siblings
+ */
+$.prototype.siblings = function () {
+  let numberOfItems = 0;
+  let counter = 0;
+
+  const copyObj = Object.assign({}, this);
+
+  for (let i = 0; i < copyObj.length; i++) {
+    const arr = copyObj[i].parentNode.children;
+
+    for (let j = 0; j < arr.length; j++) {
+      if (copyObj[i] === arr[j]) {
+        continue;
+      }
+
+      this[counter] = arr[j];
+      counter++;
+    }
+
+    numberOfItems += arr.length - 1;
+  }
+
+  this.length = numberOfItems;
+  /**
+   * Якщо кількість елементів у ісходному об'єкті було більше ніж у виходному
+   * з'являються порожні елементи, яки і видаляємо
+   */
   const objLength = Object.keys(this).length;
-  for (; numberOfItems < objLength; counter++) {
-    delete this[counter];
+  for (; numberOfItems < objLength; numberOfItems++) {
+    delete this[numberOfItems];
   }
 
   return this;
