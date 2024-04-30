@@ -4,25 +4,3 @@
 @import './components/ui.scss';
 @import './helpers/classes.scss';
 
-// .wrapper{
-//     padding: 50px;
-//     display: grid;
-//     gap: 20px;
-
-// }
-
-div{
-    font-size: 35px;
-    border: 1px solid $dark;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-button{
-    font-size: 35px;
-    margin: 30px;
-}
-.active{
-    background-color: yellowgreen;
-    color: blue;
-}
