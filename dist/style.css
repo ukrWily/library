@@ -1,40 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-.wrapper {
-  padding: 50px;
-  display: grid;
-  gap: 20px;
+.container {
+  max-width: 1140px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #025fff;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #343a40;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px #343a40;
+  transition: all 0.3s ease 0s;
+}
+.btn:hover {
+  box-shadow: 3px 3px 3px #343a40;
+  background-color: #357fff;
+  color: #fff;
+  transform: scale(1.05);
+}
+.btn:active {
+  box-shadow: 1px 1px 2px red;
+}
+.btn-primary {
+  background-color: #025fff;
+  border-color: #025fff;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #004cce;
+}
+.btn-success {
+  background-color: #2a9924;
+  border-color: #2a9924;
+  color: #fff;
+}
+.btn-success:hover {
+  background-color: #1f701a;
+}
+.btn-danger {
+  background-color: #ea2e41;
+  border-color: #ea2e41;
+  color: #fff;
+}
+.btn-danger:hover {
+  background-color: #d01528;
+}
+.btn-warning {
+  background-color: #ffc907;
+  border-color: #ffc907;
+  color: #fff;
+}
+.btn-warning:hover {
+  background-color: #d3a500;
+}
+.btn-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+.btn-dark:hover {
+  background-color: #1d2124;
+}
+.btn-outline-primary {
+  border-color: #025fff;
+  color: #025fff;
+}
+.btn-outline-primary:hover {
+  background-color: #025fff;
+}
+.btn-outline-success {
+  border-color: #2a9924;
+  color: #2a9924;
+}
+.btn-outline-success:hover {
+  background-color: #2a9924;
+}
+.btn-outline-danger {
+  border-color: #ea2e41;
+  color: #ea2e41;
+}
+.btn-outline-danger:hover {
+  background-color: #ea2e41;
+}
+.btn-outline-warning {
+  border-color: #ffc907;
+  color: #ffc907;
+}
+.btn-outline-warning:hover {
+  background-color: #ffc907;
+}
+.btn-outline-dark {
+  border-color: #343a40;
+  color: #343a40;
+}
+.btn-outline-dark:hover {
+  background-color: #343a40;
+}
+.btn-block {
+  display: block;
+  width: 100%;
 }
 
 div {
   font-size: 35px;
-  border: 1px solid black;
+  border: 1px solid #343a40;
   padding: 5px 10px;
   border-radius: 5px;
 }
 
 button {
-  justify-self: start;
-  display: inline-block;
   font-size: 35px;
   margin: 30px;
-  padding: 10px;
-  border: 1px solid grey;
-  border-radius: 10px;
-  box-shadow: 1px 1px 2px black;
-  transition: all 0.3s ease 0s;
-}
-
-button:hover {
-  box-shadow: 2px 2px 3px black;
-}
-
-button:active {
-  box-shadow: 1px 1px 2px red;
 }
 
 .active {

@@ -19,4 +19,4 @@ import $ from "./lib/lib";
 // console.log($(".some").closest(".findmeq"));
 // console.log($(".more").eq(0).siblings());
 // console.log($(".target").siblings());
-$(".target").fadeIn(1800);
+// $(".target").fadeIn(1800);

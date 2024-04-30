@@ -1,38 +1,26 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.wrapper{
-    padding: 50px;
-    display: grid;
-    gap: 20px;
+@import './general/base.scss';
+@import './general/variables.scss';
+@import './general/typography.scss';
+@import './components/ui.scss';
+@import './helpers/classes.scss';
 
-}
+// .wrapper{
+//     padding: 50px;
+//     display: grid;
+//     gap: 20px;
+
+// }
 
 div{
     font-size: 35px;
-    border: 1px solid black;
+    border: 1px solid $dark;
     padding: 5px 10px;
     border-radius: 5px;
 }
 
 button{
-    justify-self: start;
-    display: inline-block;
     font-size: 35px;
     margin: 30px;
-    padding: 10px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    box-shadow: 1px 1px 2px black;
-    transition: all 0.3s ease 0s;
-}
-button:hover{
-        box-shadow: 2px 2px 3px black;
-}
-button:active{
-    box-shadow: 1px 1px 2px red;
 }
 .active{
     background-color: yellowgreen;

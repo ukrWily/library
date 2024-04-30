@@ -515,7 +515,7 @@ __webpack_require__.r(__webpack_exports__);
 // console.log($(".some").closest(".findmeq"));
 // console.log($(".more").eq(0).siblings());
 // console.log($(".target").siblings());
-(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(".target").fadeIn(1800);
+// $(".target").fadeIn(1800);
 })();
 
 /******/ })()
