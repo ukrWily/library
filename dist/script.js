@@ -387,6 +387,52 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeOut = function (dur,
   }
   return this;
 };
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeToggle = function (dur, display = "block", fin) {
+  for (let i = 0; i < this.length; i++) {
+    if (window.getComputedStyle(this[i]).display === "none") {
+      this[i].style.display = display;
+      const _fadeIn = complection => {
+        this[i].style.opacity = complection;
+      };
+      const ani = this.animateOverTime(dur, _fadeIn, fin);
+      requestAnimationFrame(ani);
+    } else {
+      const _fadeOut = complection => {
+        this[i].style.opacity = 1 - complection;
+        if (complection === 1) {
+          this[i].style.display = "none";
+        }
+      };
+      const ani = this.animateOverTime(dur, _fadeOut, fin);
+      requestAnimationFrame(ani);
+    }
+  }
+  return this;
+};
+// <{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<{<>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>}>
+// $.prototype.animateElement = function (dur, type, display = "block", fin) {
+//   for (let i = 0; i < this.length; i++) {
+//     const element = this[i];
+//     element.style.display = display;
+
+//     const animate = (complection) => {
+//       if (type === "fadeIn") {
+//         element.style.opacity = complection;
+//       } else if (type === "fadeOut") {
+//         element.style.opacity = 1 - complection;
+//       }
+
+//       if (complection === 1 && type === "fadeOut") {
+//         element.style.display = "none";
+//       }
+//     };
+
+//     const ani = this.animateOverTime(dur, animate, fin);
+//     requestAnimationFrame(ani);
+//   }
+
+//   return this;
+// };
 
 /***/ }),
 
@@ -499,10 +545,10 @@ __webpack_require__.r(__webpack_exports__);
   (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])("div").eq(0).fadeOut(800);
 });
 (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-count="second"]').on("click", () => {
-  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])("div").eq(1).fadeOut(800);
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])("div").eq(1).fadeToggle(800);
 });
 (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])("button").eq(2).on("click", () => {
-  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(".w-500").fadeOut(800);
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(".w-500").fadeToggle(800);
 });
 
 // $("button").on("click", function () {
