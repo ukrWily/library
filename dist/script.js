@@ -2,6 +2,45 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/lib/components/dropdown.js":
+/*!*******************************************!*\
+  !*** ./src/js/lib/components/dropdown.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.dropdown = function () {
+  for (let i = 0; i < this.length; i++) {
+    const id = this[i].getAttribute("id");
+    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).click(() => {
+      console.log((0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(".dropdown-menu"));
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(`[data-toggle-id="${id}"]`).fadeToggle(300);
+    });
+  }
+};
+
+/**
+ * Щоб все зразу зароботоло, зразу ініціалізуємо
+ */
+(0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(".dropdown-toggle").dropdown();
+
+/**
+ * Example
+ */
+// <!-- Dropdown menu -->
+// <div class="dropdown">
+//     <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton">Dropdown button</button>
+//     <div class="dropdown-menu" data-toggle-id="dropdownMenuButton">
+//         <a href="#" class="dropdown-item">Lorem ipsum dolor sit amet.</a>
+//         <a href="#" class="dropdown-item">Lorem, ipsum dolor.</a>
+//         <a href="#" class="dropdown-item">Lorem ipsum dolor sit.</a>
+//     </div>
+// </div>
+
+/***/ }),
+
 /***/ "./src/js/lib/core.js":
 /*!****************************!*\
   !*** ./src/js/lib/core.js ***!
@@ -56,6 +95,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_attributes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/attributes */ "./src/js/lib/modules/attributes.js");
 /* harmony import */ var _modules_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/actions */ "./src/js/lib/modules/actions.js");
 /* harmony import */ var _modules_effects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/effects */ "./src/js/lib/modules/effects.js");
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/lib/components/dropdown.js");
+
 
 
 
@@ -550,6 +591,17 @@ __webpack_require__.r(__webpack_exports__);
 (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])("button").eq(2).on("click", () => {
   (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(".w-500").fadeToggle(800);
 });
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(".wrap").html(`
+  <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton">Dropdown button</button>
+        <div class="dropdown-menu" data-toggle-id="dropdownMenuButton">
+            <a href="#" class="dropdown-item">Lorem ipsum dolor sit amet.</a>
+            <a href="#" class="dropdown-item">Lorem, ipsum dolor.</a>
+            <a href="#" class="dropdown-item">Lorem ipsum dolor sit.</a>
+        </div>
+    </div>
+`);
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(".dropdown-toggle").dropdown();
 
 // $("button").on("click", function () {
 //   $(".wrapper>div").toggleClass("active");
