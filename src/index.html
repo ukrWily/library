@@ -31,7 +31,7 @@
         <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem cumque consequatur sint maiores consectetur atque dolores exercitationem.</p>
-            <a href="#" class="btn btn-primary">Link to</a>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Link to</a>
         </div>
     </div>
     <div class="card">
@@ -39,12 +39,12 @@
         <div class="card-body">
             <h4 class="card-title">Card title #2</h4>
             <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem cumque consequatur sint maiores consectetur atque dolores exercitationem.</p>
-            <a href="#" class="btn btn-primary">Link to</a>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Link to</a>
         </div>
     </div>
     </div>
 
-    <div class="modal" id="example-modal">
+    <div class="modal" id="exampleModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <button class="close" data-close>
@@ -54,7 +54,28 @@
                     <div class="modal-title">Modal title</div>
                 </div>
                 <div class="modal-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum fuga tempora sapiente non quos, quibusdam obcaecati illo eveniet. Illo ipsa autem, provident veritatis recusandae cumque minima dicta sit corrupti illum!</div>
-                <div class="modal-footer"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-close>Close</button>
+                    <button class="btn btn-success">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="exampleModal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button class="close" data-close>
+                    <span>&times;</span>
+                </button>
+                <div class="modal-header">
+                    <div class="modal-title">Modal title #2</div>
+                </div>
+                <div class="modal-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum fuga tempora sapiente non quos, quibusdam obcaecati illo eveniet!</div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-close>Close</button>
+                    <button class="btn btn-success">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
