@@ -178,7 +178,9 @@ __webpack_require__.r(__webpack_exports__);
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.tab = function () {
   for (let i = 0; i < this.length; i++) {
-    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).on("click", () => {});
+    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).on("click", () => {
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).addClass("tab-item--active").siblings().removeClass("tab-item--active");
+    });
   }
 };
 (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])("[data-panel .tab-item").tab();
