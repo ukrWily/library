@@ -230,35 +230,85 @@
 
 .tab {
   max-width: 700px;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
 }
 .tab-panel {
   display: flex;
+  align-items: center;
   width: 100%;
   min-height: 50px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px 4px 0 0;
+  border-radius: 7px 7px 0 0;
 }
 .tab-item {
   font-size: 18px;
   line-height: 27px;
   padding: 10px 20px;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .tab-item:last-child {
   border-right: none;
 }
 .tab-item--active {
+  border: 1px solid rgba(0, 0, 0, 0.4);
   background-color: rgba(0, 0, 0, 0.1);
+  text-shadow: 0.1px 0.1px 0.1px #025fff;
 }
 .tab-content {
   display: none;
   padding: 20px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-top: none;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 7px 7px;
 }
 .tab-content--active {
   display: block;
+}
+
+.dropdown {
+  margin-left: 30%;
+}
+
+.accordion {
+  max-width: 700px;
+}
+.accordion-head {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 0 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  color: #343a40;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.accordion-head--active {
+  color: #025fff;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.accordion-content {
+  max-height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.5s, max-height 0.6s, padding 0.1s;
+  background-color: #fff;
+  border: 1px solid rgb(224, 211, 211);
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+.accordion-content--active {
+  overflow: visible;
+  opacity: 1;
+}
+.accordion-inner {
+  display: block;
+  padding: 20px;
 }
 
 .text-center {
@@ -368,6 +418,10 @@
 
 .mt-20 {
   margin-top: 20px;
+}
+
+.mt-30 {
+  margin-top: 30px;
 }
 
 .mr-20 {

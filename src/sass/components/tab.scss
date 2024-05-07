@@ -1,22 +1,28 @@
 .tab{
   max-width: 700px;
+  box-shadow: 3px 3px 1px rgba($color: #000000, $alpha: .3);
+  border-radius: 7px;
   &-panel{
     display: flex;
+    align-items: center;
     width: 100%;
     min-height: 50px;
     border: 1px solid rgba($color: #000000, $alpha: .2);
-    border-radius: 4px 4px 0 0;
+    border-radius: 7px 7px 0 0;
   }
   &-item{
     font-size: 18px;
     line-height: 27px;
     padding: 10px 20px;
     border-right: 1px solid rgba($color: #000000, $alpha: .2);
+    cursor: pointer;
     &:last-child{
       border-right: none;
     }
     &--active{
+      border: 1px solid rgba($color: #000000, $alpha: .4);
       background-color: rgba($color: #000000, $alpha: .1);
+      text-shadow: .1px .1px .1px $primary;
     }
   }
   &-content{
@@ -24,9 +30,12 @@
     padding: 20px;
     border: 1px solid rgba($color: #000000, $alpha: .2);
     border-top: none;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 7px 7px;
     &--active{
       display: block;
     }
   }
+}
+.dropdown{
+  margin-left: 30%;
 }
