@@ -28,6 +28,29 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.accordion = function (he
 
 /***/ }),
 
+/***/ "./src/js/lib/components/carousel.js":
+/*!*******************************************!*\
+  !*** ./src/js/lib/components/carousel.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
+  for (let i = 0; i < this.length; i++) {
+    const width = window.getComputedStyle(this[i].querySelector(".carousel-inner")).width;
+    const slides = this[i].querySelectorAll(".carousel-item");
+    this[i].querySelector(".carousel-slides").style.width = 100 * slides.length + "%";
+    slides.forEach(slide => {
+      slide.style.width = width;
+    });
+  }
+};
+(0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(".carousel").carousel();
+
+/***/ }),
+
 /***/ "./src/js/lib/components/dropdown.js":
 /*!*******************************************!*\
   !*** ./src/js/lib/components/dropdown.js ***!
@@ -278,6 +301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/modal */ "./src/js/lib/components/modal.js");
 /* harmony import */ var _components_tab__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/tab */ "./src/js/lib/components/tab.js");
 /* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/accordion */ "./src/js/lib/components/accordion.js");
+/* harmony import */ var _components_carousel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/carousel */ "./src/js/lib/components/carousel.js");
+
 
 
 
