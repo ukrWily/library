@@ -42,6 +42,7 @@
   &-slides {
     height: 100%;
     display: flex;
+    transition: .5s;
   }
   &-item {
     height: 100%;
@@ -51,11 +52,33 @@
       object-fit: cover;
     }
   }
+  &-prev, &-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    color: #fff;
+    opacity: 0.5;
+    text-align: center;
+    font-size: 40px;
+    transition: opacity .15s ease;
+    text-decoration: none;
+    &:hover{
+      opacity: 0.9;
+      background-color: rgba($color: #000000, $alpha: .2);
+    }
+  }
   &-prev {
+    left: 0;
   }
   &-prev-icon {
   }
   &-next {
+    right: 0;
   }
   &-next-icon {
   }
